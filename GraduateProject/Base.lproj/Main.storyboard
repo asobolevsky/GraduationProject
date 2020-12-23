@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X9F-R0-Gqa">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Quick Look-->
+        <scene sceneID="fko-9x-6eH">
+            <objects>
+                <viewController id="Okj-in-vaP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AZ8-mU-HI3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="edm-uH-iUy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Quick Look" image="quick_look" id="riJ-n0-GH6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ifb-WS-zB5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842" y="53"/>
+        </scene>
+        <!--Scene Kit Root View Controller-->
+        <scene sceneID="Ut7-Ne-e5s">
+            <objects>
+                <viewController id="SqL-wf-9wx" customClass="SceneKitRootViewController" customModule="GraduateProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ev1-SW-Jjl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ZGt-sb-fEZ">
+                                <rect key="frame" x="97" y="487" width="220" height="296"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARKit + SceneKit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCi-uc-rYr">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ELA-e2-BQ5">
+                                        <rect key="frame" x="35" y="86" width="150" height="210"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHH-wV-WgK">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.63137254901960782" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="6Vv-SF-0uL"/>
+                                                    <constraint firstAttribute="width" constant="150" id="Brt-oV-U91"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Image Detection">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="showImageDetection:" destination="SqL-wf-9wx" eventType="touchUpInside" id="K3h-Jm-WiQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zt-6P-eOE">
+                                                <rect key="frame" x="0.0" y="80" width="150" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.63137254901960782" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Face Tracking">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="showFaceTracking:" destination="SqL-wf-9wx" eventType="touchUpInside" id="XNn-mY-HbN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiz-9F-m99">
+                                                <rect key="frame" x="0.0" y="160" width="150" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.63137254901960782" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Plane Detection">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="showPlaneDetection:" destination="SqL-wf-9wx" eventType="touchUpInside" id="XOu-0I-czd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0zt-6P-eOE" firstAttribute="height" secondItem="yHH-wV-WgK" secondAttribute="height" id="B9P-rV-3Uy"/>
+                                            <constraint firstItem="0zt-6P-eOE" firstAttribute="width" secondItem="yHH-wV-WgK" secondAttribute="width" id="TNQ-ZI-ft9"/>
+                                            <constraint firstItem="Wiz-9F-m99" firstAttribute="height" secondItem="yHH-wV-WgK" secondAttribute="height" id="iJk-lR-cCv"/>
+                                            <constraint firstItem="Wiz-9F-m99" firstAttribute="width" secondItem="yHH-wV-WgK" secondAttribute="width" id="kE6-Zk-fYe"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rE7-FL-7qn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZGt-sb-fEZ" firstAttribute="centerX" secondItem="Ev1-SW-Jjl" secondAttribute="centerX" id="8TZ-ua-qMd"/>
+                            <constraint firstItem="rE7-FL-7qn" firstAttribute="bottom" secondItem="ZGt-sb-fEZ" secondAttribute="bottom" constant="30" id="Bmm-FX-EdQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BQe-l3-aPL"/>
+                    <connections>
+                        <segue destination="4oJ-z2-KRf" kind="show" identifier="PresentARScenario" id="ixH-8I-icm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhz-nF-0qN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="68.115942028985515" y="-631.47321428571422"/>
+        </scene>
+        <!--Scene Kit Scenario View Controller-->
+        <scene sceneID="gsg-ut-r79">
+            <objects>
+                <viewController id="4oJ-z2-KRf" customClass="SceneKitScenarioViewController" customModule="GraduateProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DPZ-iM-dG2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9VX-Mw-UsF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1WI-wR-QaJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRR-8K-0ci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="-631"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="emQ-zS-chr">
+            <objects>
+                <tabBarController id="X9F-R0-Gqa" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xuR-J3-Dlw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pPV-eF-h03" kind="relationship" relationship="viewControllers" id="o3j-mp-aRF"/>
+                        <segue destination="Okj-in-vaP" kind="relationship" relationship="viewControllers" id="P2f-6Z-vAd"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="fwH-Oh-tee"/>
+                        <segue destination="oBI-6J-hPD" kind="relationship" relationship="viewControllers" id="OO0-Ma-ngg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jnf-R5-QDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1838" y="382"/>
+        </scene>
+        <!--Reality Kit-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GraduateProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Reality Kit" image="realitykit" id="Mcj-6r-7CF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842" y="725"/>
+        </scene>
+        <!--Sprite Kit-->
+        <scene sceneID="mkL-wI-7v2">
+            <objects>
+                <viewController id="oBI-6J-hPD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2VQ-DT-06R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vMp-bb-JBs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Sprite Kit" image="spritekit" id="PGR-6a-IaN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KHt-Yz-Wam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842" y="1473"/>
+        </scene>
+        <!--SceneKit-->
+        <scene sceneID="1zu-KZ-UpO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pPV-eF-h03" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="SceneKit" image="scenekit" id="hJj-AY-PGM"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C1e-jl-f9Y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SqL-wf-9wx" kind="relationship" relationship="rootViewController" id="QdA-Ym-kTk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zje-l4-2cY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842.02898550724649" y="-631.47321428571422"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="quick_look" width="22" height="25"/>
+        <image name="realitykit" width="25" height="25"/>
+        <image name="scenekit" width="25" height="25"/>
+        <image name="spritekit" width="25" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
