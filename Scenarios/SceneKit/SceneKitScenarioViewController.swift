@@ -5,9 +5,9 @@
 //  Created by Aleksei Sobolevskii on 2020-12-22.
 //
 
-import UIKit
+import ARKit
 
-enum ARScenario {
+enum SceneKitScenarioType {
     case imageDetection
     case faceTracking
     case planeDetection
@@ -15,41 +15,76 @@ enum ARScenario {
 
 struct SceneKitScenarioViewControllerConfigurator {
     let title: String?
-    let scenario: ARScenario
+    let scenarioType: SceneKitScenarioType
 }
 
 class SceneKitScenarioViewController: UIViewController {
     
+    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet var statusLabel: UILabel!
+    
     var configurator: SceneKitScenarioViewControllerConfigurator?
+    private var scenario: SceneKitScenario?
+    private var statusMessage: String? {
+        didSet {
+            updateStatusLabel()
+        }
+    }
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureView()
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        scenario?.startSession()
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        scenario?.stopSession()
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    // MARK: - Private
+    // MARK: - Configuration
     
-    private func configureView() {
+    private func setup() {
         guard let configurator = configurator else {
             return
         }
         
         title = configurator.title
+        scenario = createScenario(for: configurator.scenarioType, session: sceneView.session)
+        
+        setupScene()
+    }
+    
+    private func createScenario(for type: SceneKitScenarioType, session: ARSession) -> SceneKitScenario {
+        switch type {
+        case .faceTracking:     return ImageDetectionScenario(with: session)
+        case .imageDetection:   return ImageDetectionScenario(with: session)
+        case .planeDetection:   return ImageDetectionScenario(with: session)
+        }
+    }
+    
+    private func setupScene() {
+        let scene = SCNScene()
+        sceneView.scene = scene
+        sceneView.automaticallyUpdatesLighting = true
+        sceneView.autoenablesDefaultLighting = true
+    }
+    
+    private func updateStatusLabel() {
+        DispatchQueue.main.async {
+            self.statusLabel.text = self.statusMessage
+        }
     }
     
 }

@@ -44,8 +44,8 @@ class SceneKitRootViewController: UIViewController {
     
     // MARK: - Private
     
-    private func presentController(for scenario: ARScenario, title: String?) {
-        let configurator = SceneKitScenarioViewControllerConfigurator(title: title, scenario:scenario)
+    private func presentController(for scenarioType: SceneKitScenarioType, title: String?) {
+        let configurator = SceneKitScenarioViewControllerConfigurator(title: title, scenarioType: scenarioType)
         performSegue(withIdentifier: .scenarioSegueID, sender: configurator)
     }
     
