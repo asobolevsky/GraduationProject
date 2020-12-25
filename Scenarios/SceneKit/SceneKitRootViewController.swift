@@ -14,7 +14,15 @@ class SceneKitRootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        #if targetEnvironment(simulator)
+        #error("ARKit is not supported in iOS Simulator. Connect a physical iOS device and select it as your Xcode run destination, or select Generic iOS Device as a build-only destination.")
+        #endif
+        
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        // Prevent the screen from being dimmed after a while as users will likely
+        // have long periods of interaction without touching the screen or buttons.
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -68,9 +68,9 @@ class SceneKitScenarioViewController: UIViewController {
     
     private func createScenario(for type: SceneKitScenarioType, session: ARSession) -> SceneKitScenario {
         switch type {
-        case .faceTracking:     return ImageDetectionScenario(with: session, rootNode: sceneView.scene.rootNode)
-        case .imageDetection:   return ImageDetectionScenario(with: session, rootNode: sceneView.scene.rootNode)
-        case .planeDetection:   return ImageDetectionScenario(with: session, rootNode: sceneView.scene.rootNode)
+        case .faceTracking:     return MoleculesScenario(with: session, rootNode: sceneView.scene.rootNode)
+        case .imageDetection:   return MoleculesScenario(with: session, rootNode: sceneView.scene.rootNode)
+        case .planeDetection:   return TowerDefenceScenario(with: session, rootNode: sceneView.scene.rootNode)
         }
     }
     

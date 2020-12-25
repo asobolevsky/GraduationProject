@@ -1,5 +1,5 @@
 //
-//  ImageDetectionScenario.swift
+//  MoleculesScenario.swift
 //  GraduateProject
 //
 //  Created by Aleksei Sobolevskii on 2020-12-23.
@@ -7,7 +7,7 @@
 
 import ARKit
 
-class ImageDetectionScenario: NSObject, SceneKitScenario {
+class MoleculesScenario: NSObject, SceneKitScenario {
     
     private let session: ARSession
     private let rootNode: SCNNode
@@ -21,11 +21,15 @@ class ImageDetectionScenario: NSObject, SceneKitScenario {
         self.rootNode = rootNode
     }
     
-    // MARK: - Session
+    // MARK: - SceneKitScenario
     
     func startSession() {
+        guard ARImageTrackingConfiguration.isSupported else {
+            return
+        }
+        
         let config = ARImageTrackingConfiguration()
-        if let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "SceneKitElements", bundle: nil) {
+        if let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "Molecules", bundle: nil) {
             config.trackingImages = referenceImages
             config.maximumNumberOfTrackedImages = 8
         }
@@ -38,7 +42,9 @@ class ImageDetectionScenario: NSObject, SceneKitScenario {
     
 }
 
-extension ImageDetectionScenario: ARSCNViewDelegate {
+// MARK: - ARSCNViewDelegate
+
+extension MoleculesScenario: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else {
             return
@@ -76,10 +82,13 @@ extension ImageDetectionScenario: ARSCNViewDelegate {
         node.addChildNode(sphereNode)
     }
     
+    // is called for each image anchor separately
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard anchor is ARImageAnchor else {
+        guard let imageAnchor = anchor as? ARImageAnchor else {
             return
         }
+        
+        print("Is image tracked: \(imageAnchor.isTracked)")
         
         if let acetaldehyde = acetaldehydeNode, let ammonia = ammoniaNode {
             let distance = acetaldehyde.distance(to: ammonia)

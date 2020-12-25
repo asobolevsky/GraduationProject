@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		5F43585E2592CC9A007C5036 /* SceneKitRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43585D2592CC9A007C5036 /* SceneKitRootViewController.swift */; };
 		5F4358622592CD79007C5036 /* SceneKitScenarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4358612592CD79007C5036 /* SceneKitScenarioViewController.swift */; };
-		5F81E54725940DB7000AB730 /* ImageDetectionScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E54625940DB7000AB730 /* ImageDetectionScenario.swift */; };
+		5F81E54725940DB7000AB730 /* MoleculesScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E54625940DB7000AB730 /* MoleculesScenario.swift */; };
 		5F81E54C25940FBD000AB730 /* SceneKitScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E54B25940FBD000AB730 /* SceneKitScenario.swift */; };
 		5F81E55E25956207000AB730 /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E55D25956207000AB730 /* SCNVector3+Extensions.swift */; };
 		5F81E56125956242000AB730 /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E56025956242000AB730 /* SCNNode+Extensions.swift */; };
+		5F81E56625965D2C000AB730 /* TowerDefenceScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E56525965D2C000AB730 /* TowerDefenceScenario.swift */; };
+		5F81E56A259660C9000AB730 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F81E569259660C9000AB730 /* art.scnassets */; };
+		5F81E56D259661E5000AB730 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E56C259661E5000AB730 /* Sequence+Extension.swift */; };
+		5F81E571259668AD000AB730 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E570259668AC000AB730 /* String+Extensions.swift */; };
 		5FD27D692592BF3500CE283C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD27D682592BF3500CE283C /* AppDelegate.swift */; };
 		5FD27D6B2592BF3500CE283C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD27D6A2592BF3500CE283C /* SceneDelegate.swift */; };
 		5FD27D6D2592BF3500CE283C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD27D6C2592BF3500CE283C /* ViewController.swift */; };
@@ -24,10 +28,14 @@
 /* Begin PBXFileReference section */
 		5F43585D2592CC9A007C5036 /* SceneKitRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitRootViewController.swift; sourceTree = "<group>"; };
 		5F4358612592CD79007C5036 /* SceneKitScenarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitScenarioViewController.swift; sourceTree = "<group>"; };
-		5F81E54625940DB7000AB730 /* ImageDetectionScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetectionScenario.swift; sourceTree = "<group>"; };
+		5F81E54625940DB7000AB730 /* MoleculesScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculesScenario.swift; sourceTree = "<group>"; };
 		5F81E54B25940FBD000AB730 /* SceneKitScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitScenario.swift; sourceTree = "<group>"; };
 		5F81E55D25956207000AB730 /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
 		5F81E56025956242000AB730 /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
+		5F81E56525965D2C000AB730 /* TowerDefenceScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerDefenceScenario.swift; sourceTree = "<group>"; };
+		5F81E569259660C9000AB730 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		5F81E56C259661E5000AB730 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
+		5F81E570259668AC000AB730 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		5FD27D652592BF3500CE283C /* GraduateProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraduateProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD27D682592BF3500CE283C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FD27D6A2592BF3500CE283C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,8 +78,9 @@
 		5F81E54525940DAA000AB730 /* Scenarios */ = {
 			isa = PBXGroup;
 			children = (
-				5F81E54625940DB7000AB730 /* ImageDetectionScenario.swift */,
+				5F81E54625940DB7000AB730 /* MoleculesScenario.swift */,
 				5F81E54B25940FBD000AB730 /* SceneKitScenario.swift */,
+				5F81E56525965D2C000AB730 /* TowerDefenceScenario.swift */,
 			);
 			path = Scenarios;
 			sourceTree = "<group>";
@@ -81,6 +90,8 @@
 			children = (
 				5F81E55D25956207000AB730 /* SCNVector3+Extensions.swift */,
 				5F81E56025956242000AB730 /* SCNNode+Extensions.swift */,
+				5F81E56C259661E5000AB730 /* Sequence+Extension.swift */,
+				5F81E570259668AC000AB730 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -113,6 +124,7 @@
 				5FD27D712592BF3900CE283C /* Assets.xcassets */,
 				5FD27D732592BF3900CE283C /* LaunchScreen.storyboard */,
 				5FD27D762592BF3900CE283C /* Info.plist */,
+				5F81E569259660C9000AB730 /* art.scnassets */,
 			);
 			path = GraduateProject;
 			sourceTree = "<group>";
@@ -176,6 +188,7 @@
 			files = (
 				5FD27D752592BF3900CE283C /* LaunchScreen.storyboard in Resources */,
 				5FD27D722592BF3900CE283C /* Assets.xcassets in Resources */,
+				5F81E56A259660C9000AB730 /* art.scnassets in Resources */,
 				5FD27D702592BF3500CE283C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,11 +202,14 @@
 			files = (
 				5F43585E2592CC9A007C5036 /* SceneKitRootViewController.swift in Sources */,
 				5FD27D6D2592BF3500CE283C /* ViewController.swift in Sources */,
+				5F81E56625965D2C000AB730 /* TowerDefenceScenario.swift in Sources */,
 				5FD27D692592BF3500CE283C /* AppDelegate.swift in Sources */,
+				5F81E571259668AD000AB730 /* String+Extensions.swift in Sources */,
 				5F81E55E25956207000AB730 /* SCNVector3+Extensions.swift in Sources */,
-				5F81E54725940DB7000AB730 /* ImageDetectionScenario.swift in Sources */,
+				5F81E54725940DB7000AB730 /* MoleculesScenario.swift in Sources */,
 				5FD27D6B2592BF3500CE283C /* SceneDelegate.swift in Sources */,
 				5F4358622592CD79007C5036 /* SceneKitScenarioViewController.swift in Sources */,
+				5F81E56D259661E5000AB730 /* Sequence+Extension.swift in Sources */,
 				5F81E56125956242000AB730 /* SCNNode+Extensions.swift in Sources */,
 				5F81E54C25940FBD000AB730 /* SceneKitScenario.swift in Sources */,
 			);
