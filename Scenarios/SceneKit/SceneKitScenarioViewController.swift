@@ -79,6 +79,30 @@ class SceneKitScenarioViewController: UIViewController {
         sceneView.delegate = scenario
         sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true
+        
+        
+//        let redSphere = SCNNode(geometry: SCNSphere(radius: 0.3))
+//        redSphere.position = SCNVector3(-0.5, 0, -3)
+//        redSphere.geometry?.firstMaterial?.diffuse.contents = UIColor.systemRed
+//        
+//        let blueSphere = SCNNode(geometry: SCNSphere(radius: 0.3))
+//        blueSphere.position = SCNVector3(0.5, 0, -3)
+//        blueSphere.geometry?.firstMaterial?.diffuse.contents = UIColor.systemBlue
+//        
+//        let median = redSphere.position.median(to: blueSphere.position)
+//        let container = SCNNode()
+//        container.position = median
+//        
+//        redSphere.position = sceneView.scene.rootNode.convertPosition(redSphere.position, to: container)
+//        blueSphere.position = sceneView.scene.rootNode.convertPosition(blueSphere.position, to: container)
+//        
+//        container.addChildNode(redSphere)
+//        container.addChildNode(blueSphere)
+//        
+//        let rotationAction = SCNAction.rotate(by: .pi * 2, around: SCNVector3(0, 1, 0), duration: 10)
+//        container.runAction(SCNAction.repeatForever(rotationAction))
+//        
+//        sceneView.scene.rootNode.addChildNode(container)
     }
     
     private func updateStatusLabel() {

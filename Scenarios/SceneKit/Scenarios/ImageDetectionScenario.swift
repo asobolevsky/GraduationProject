@@ -81,11 +81,10 @@ extension ImageDetectionScenario: ARSCNViewDelegate {
             return
         }
         
-        if canCloneNodes,  let acetaldehyde = acetaldehydeNode, let ammonia = ammoniaNode {
+        if let acetaldehyde = acetaldehydeNode, let ammonia = ammoniaNode {
             let distance = acetaldehyde.distance(to: ammonia)
             
-            print(distance)
-            if distance < 0.08 {
+            if distance <= 0.08 && canCloneNodes {
                 canCloneNodes = false
                 
                 let acetaldehydeClone = acetaldehyde.clone()
@@ -98,15 +97,28 @@ extension ImageDetectionScenario: ARSCNViewDelegate {
                 ammonia.isHidden = true
                 
                 let container = SCNNode()
+                container.name = "ContainerNode"
+                let median = acetaldehydeClone.position.median(to: ammoniaClone.position)
+                container.position = median
                 container.addChildNode(acetaldehydeClone)
                 container.addChildNode(ammoniaClone)
+                
+                acetaldehydeClone.position = rootNode.convertPosition(acetaldehydeClone.position, to: container)
+                ammoniaClone.position = rootNode.convertPosition(ammoniaClone.position, to: container)
                 
                 rootNode.addChildNode(container)
                 
                 let rotateAction = SCNAction.rotate(by: .pi, around: SCNVector3(0, 1, 0), duration: 10)
                 container.runAction(SCNAction.repeatForever(rotateAction))
+            } else if distance > 0.08 && canCloneNodes == false {
+                acetaldehyde.isHidden = false
+                ammonia.isHidden = false
                 
-                print(acetaldehydeClone.position)
+                if let containerNode = rootNode.childNode(withName: "ContainerNode", recursively: true) {
+                    containerNode.removeFromParentNode()
+                }
+                
+                canCloneNodes = true
             }
         }
     }
