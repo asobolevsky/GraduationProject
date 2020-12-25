@@ -1,0 +1,32 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "resources" : [
+    {
+      "filename" : "acetaldehyde.arreferenceimage"
+    },
+    {
+      "filename" : "ammonia.arreferenceimage"
+    },
+    {
+      "filename" : "ethane.arreferenceimage"
+    },
+    {
+      "filename" : "formic_acid.arreferenceimage"
+    },
+    {
+      "filename" : "hydrazine.arreferenceimage"
+    },
+    {
+      "filename" : "hydrogen_peroxide.arreferenceimage"
+    },
+    {
+      "filename" : "methane.arreferenceimage"
+    },
+    {
+      "filename" : "water.arreferenceimage"
+    }
+  ]
+}

@@ -61,22 +61,22 @@ class SceneKitScenarioViewController: UIViewController {
         }
         
         title = configurator.title
-        scenario = createScenario(for: configurator.scenarioType, session: sceneView.session)
         
+        scenario = createScenario(for: configurator.scenarioType, session: sceneView.session)
         setupScene()
     }
     
     private func createScenario(for type: SceneKitScenarioType, session: ARSession) -> SceneKitScenario {
         switch type {
-        case .faceTracking:     return ImageDetectionScenario(with: session)
-        case .imageDetection:   return ImageDetectionScenario(with: session)
-        case .planeDetection:   return ImageDetectionScenario(with: session)
+        case .faceTracking:     return ImageDetectionScenario(with: session, rootNode: sceneView.scene.rootNode)
+        case .imageDetection:   return ImageDetectionScenario(with: session, rootNode: sceneView.scene.rootNode)
+        case .planeDetection:   return ImageDetectionScenario(with: session, rootNode: sceneView.scene.rootNode)
         }
     }
     
     private func setupScene() {
-        let scene = SCNScene()
-        sceneView.scene = scene
+        sceneView.showsStatistics = true
+        sceneView.delegate = scenario
         sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true
     }

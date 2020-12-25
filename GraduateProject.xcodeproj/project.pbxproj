@@ -11,6 +11,8 @@
 		5F4358622592CD79007C5036 /* SceneKitScenarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4358612592CD79007C5036 /* SceneKitScenarioViewController.swift */; };
 		5F81E54725940DB7000AB730 /* ImageDetectionScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E54625940DB7000AB730 /* ImageDetectionScenario.swift */; };
 		5F81E54C25940FBD000AB730 /* SceneKitScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E54B25940FBD000AB730 /* SceneKitScenario.swift */; };
+		5F81E55E25956207000AB730 /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E55D25956207000AB730 /* SCNVector3+Extensions.swift */; };
+		5F81E56125956242000AB730 /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81E56025956242000AB730 /* SCNNode+Extensions.swift */; };
 		5FD27D692592BF3500CE283C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD27D682592BF3500CE283C /* AppDelegate.swift */; };
 		5FD27D6B2592BF3500CE283C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD27D6A2592BF3500CE283C /* SceneDelegate.swift */; };
 		5FD27D6D2592BF3500CE283C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD27D6C2592BF3500CE283C /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 		5F4358612592CD79007C5036 /* SceneKitScenarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitScenarioViewController.swift; sourceTree = "<group>"; };
 		5F81E54625940DB7000AB730 /* ImageDetectionScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetectionScenario.swift; sourceTree = "<group>"; };
 		5F81E54B25940FBD000AB730 /* SceneKitScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitScenario.swift; sourceTree = "<group>"; };
+		5F81E55D25956207000AB730 /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
+		5F81E56025956242000AB730 /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 		5FD27D652592BF3500CE283C /* GraduateProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraduateProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD27D682592BF3500CE283C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FD27D6A2592BF3500CE283C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,15 @@
 			path = Scenarios;
 			sourceTree = "<group>";
 		};
+		5F81E55C259561F4000AB730 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F81E55D25956207000AB730 /* SCNVector3+Extensions.swift */,
+				5F81E56025956242000AB730 /* SCNNode+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5FD27D5C2592BF3500CE283C = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +105,7 @@
 		5FD27D672592BF3500CE283C /* GraduateProject */ = {
 			isa = PBXGroup;
 			children = (
+				5F81E55C259561F4000AB730 /* Extensions */,
 				5FD27D682592BF3500CE283C /* AppDelegate.swift */,
 				5FD27D6A2592BF3500CE283C /* SceneDelegate.swift */,
 				5FD27D6C2592BF3500CE283C /* ViewController.swift */,
@@ -176,9 +190,11 @@
 				5F43585E2592CC9A007C5036 /* SceneKitRootViewController.swift in Sources */,
 				5FD27D6D2592BF3500CE283C /* ViewController.swift in Sources */,
 				5FD27D692592BF3500CE283C /* AppDelegate.swift in Sources */,
+				5F81E55E25956207000AB730 /* SCNVector3+Extensions.swift in Sources */,
 				5F81E54725940DB7000AB730 /* ImageDetectionScenario.swift in Sources */,
 				5FD27D6B2592BF3500CE283C /* SceneDelegate.swift in Sources */,
 				5F4358622592CD79007C5036 /* SceneKitScenarioViewController.swift in Sources */,
+				5F81E56125956242000AB730 /* SCNNode+Extensions.swift in Sources */,
 				5F81E54C25940FBD000AB730 /* SceneKitScenario.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

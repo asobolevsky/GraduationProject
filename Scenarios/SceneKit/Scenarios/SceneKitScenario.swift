@@ -7,8 +7,8 @@
 
 import ARKit
 
-protocol SceneKitScenario {
-    init(with session: ARSession)
+protocol SceneKitScenario: ARSCNViewDelegate {
+    init(with session: ARSession, rootNode: SCNNode)
     
     func startSession()
     func stopSession()
