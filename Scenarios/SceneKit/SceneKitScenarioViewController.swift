@@ -79,14 +79,6 @@ class SceneKitScenarioViewController: UIViewController {
         sceneView.delegate = scenario
         sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true
-        
-        setupTurrel()
-    }
-    
-    private func setupTurrel() {
-        let turrelNode = TurrelNode()
-        turrelNode.position = SCNVector3(0, -0.2, -0.5)
-        sceneView.scene.rootNode.addChildNode(turrelNode)
     }
     
     private func updateStatusLabel() {

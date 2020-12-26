@@ -24,6 +24,7 @@
 		5FD27D722592BF3900CE283C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD27D712592BF3900CE283C /* Assets.xcassets */; };
 		5FD27D752592BF3900CE283C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FD27D732592BF3900CE283C /* LaunchScreen.storyboard */; };
 		5FE7FF1B2596C1F300350E1B /* TurrelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */; };
+		5FE7FF212597911200350E1B /* MobNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7FF202597911200350E1B /* MobNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		5FD27D742592BF3900CE283C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FD27D762592BF3900CE283C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurrelNode.swift; sourceTree = "<group>"; };
+		5FE7FF202597911200350E1B /* MobNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */,
+				5FE7FF202597911200350E1B /* MobNode.swift */,
 			);
 			path = CustomNodes;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				5F81E54725940DB7000AB730 /* MoleculesScenario.swift in Sources */,
 				5FD27D6B2592BF3500CE283C /* SceneDelegate.swift in Sources */,
 				5F4358622592CD79007C5036 /* SceneKitScenarioViewController.swift in Sources */,
+				5FE7FF212597911200350E1B /* MobNode.swift in Sources */,
 				5F81E56D259661E5000AB730 /* Sequence+Extension.swift in Sources */,
 				5F81E56125956242000AB730 /* SCNNode+Extensions.swift in Sources */,
 				5F81E54C25940FBD000AB730 /* SceneKitScenario.swift in Sources */,

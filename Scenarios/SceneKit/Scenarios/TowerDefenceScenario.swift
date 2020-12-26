@@ -53,14 +53,13 @@ class TowerDefenceScenario: NSObject, SceneKitScenario {
     // MARK: - SceneKitScenario
     
     func startSession() {
-        guard ARWorldTrackingConfiguration.isSupported else {
+        guard ARImageTrackingConfiguration.isSupported else {
             return
         }
         
-        let config = ARWorldTrackingConfiguration()
-//        config.planeDetection = [ .horizontal ]
+        let config = ARImageTrackingConfiguration()
         if let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "TowerDefence", bundle: nil) {
-            config.detectionImages = referenceImages
+            config.trackingImages = referenceImages
             config.maximumNumberOfTrackedImages = 8
         }
         session.run(config, options: [ .removeExistingAnchors, .resetTracking ])
@@ -84,14 +83,9 @@ class TowerDefenceScenario: NSObject, SceneKitScenario {
     }
     
     private func spawnMob(at position: SCNVector3 = SCNVector3()) -> SCNNode {
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.systemGreen
-        material.metalness.intensity = 2
-        
-        let geometry = SCNSphere(radius: 0.01)
-        geometry.firstMaterial = material
-        
-        let mobNode = SCNNode(geometry: geometry)
+        let mobNode = MobNode()
+        let scale: Float = 0.003
+        mobNode.scale = SCNVector3(SIMD3<Float>(repeating: scale))
         mobNode.position = position
         return mobNode
     }
@@ -116,26 +110,35 @@ class TowerDefenceScenario: NSObject, SceneKitScenario {
         parentNode.addChildNode(towerNode)
     }
     
-    private func setupPlane(with anchor: ARPlaneAnchor) -> SCNNode {
-        let geometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
-        
-        let material = SCNMaterial()
-        material.diffuse.contents = "art.scnassets/plane_grid.png"
-        material.diffuse.wrapS = .repeat
-        material.diffuse.wrapT = .repeat
-        
-        let scaleX = (Float(geometry.width) / 0.1).rounded()
-        let scaleY = (Float(geometry.height) / 0.1).rounded()
-        //we then apply the scaling
-        material.diffuse.contentsTransform = SCNMatrix4MakeScale(scaleX, scaleY, 0)
-        
-        geometry.firstMaterial = material
-        
-        let planeNode = SCNNode(geometry: geometry)
-        planeNode.simdPosition = anchor.center
-        planeNode.eulerAngles.x = -.pi / 2
-        return planeNode
+    
+    private func createTurrel(withing parentNode: SCNNode) {
+        let turrelNode = TurrelNode()
+        let scale: Float = 0.1
+        turrelNode.scale = SCNVector3(SIMD3<Float>(repeating: scale))
+        turrelNode.startFire(at: SCNVector3())
+        parentNode.addChildNode(turrelNode)
     }
+    
+//    private func setupPlane(with anchor: ARPlaneAnchor) -> SCNNode {
+//        let geometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
+//
+//        let material = SCNMaterial()
+//        material.diffuse.contents = "art.scnassets/plane_grid.png"
+//        material.diffuse.wrapS = .repeat
+//        material.diffuse.wrapT = .repeat
+//
+//        let scaleX = (Float(geometry.width) / 0.1).rounded()
+//        let scaleY = (Float(geometry.height) / 0.1).rounded()
+//        //we then apply the scaling
+//        material.diffuse.contentsTransform = SCNMatrix4MakeScale(scaleX, scaleY, 0)
+//
+//        geometry.firstMaterial = material
+//
+//        let planeNode = SCNNode(geometry: geometry)
+//        planeNode.simdPosition = anchor.center
+//        planeNode.eulerAngles.x = -.pi / 2
+//        return planeNode
+//    }
 }
 
 // MARK: - ARSCNViewDelegate
@@ -152,12 +155,6 @@ extension TowerDefenceScenario: ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if let planeAnchor = anchor as? ARPlaneAnchor {
-            let planeNode = setupPlane(with: planeAnchor)
-            node.addChildNode(planeNode)
-            return
-        }
-        
         guard
             let imageAnchor = anchor as? ARImageAnchor,
             let refImageName = imageAnchor.referenceImage.name,
@@ -168,17 +165,12 @@ extension TowerDefenceScenario: ARSCNViewDelegate {
         
         switch refImage {
         case .mobBase: startSpawningMobs(within: node)
-        case .towerBase: createTower(withing: node)
+//        case .towerBase: createTower(withing: node)
+        case .towerBase: createTurrel(withing: node)
         }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-//        if let planeAnchor = anchor as? ARPlaneAnchor {
-//            let planeNode = setupPlane(with: planeAnchor)
-//            node.addChildNode(planeNode)
-//            return
-//        }
-        
         guard
             let imageAnchor = anchor as? ARImageAnchor,
             let refImageName = imageAnchor.referenceImage.name,
@@ -188,8 +180,8 @@ extension TowerDefenceScenario: ARSCNViewDelegate {
         }
         
         switch refImage {
-        case .towerBase:
-            mobMoveDirection = node.presentation.position;
+        case .towerBase: break
+//            mobMoveDirection = node.presentation.position;
             
         default: break
         }

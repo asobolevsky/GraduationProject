@@ -9,7 +9,9 @@ import SceneKit
 
 class TurrelNode: SCNNode {
     
-    private var bulletSpawnLocations: [SCNVector3] = []
+    private var fireSpeed: TimeInterval = 0.3
+    private let barrelSize: CGFloat = 0.1
+    private var barrels: [SCNNode] = []
     
     override init() {
         super.init()
@@ -17,7 +19,52 @@ class TurrelNode: SCNNode {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setup()
+    }
+    
+    func startFire(at direction: SCNVector3) {
+        let coolDownAction = SCNAction.wait(duration: fireSpeed)
+        barrels.enumerated().forEach { pair in
+            let isEven = (pair.offset % 2 == 0)
+            var sequenceOfActions: [SCNAction] = []
+            
+            if isEven == false {
+                sequenceOfActions.append(coolDownAction)
+            }
+            
+            let barrelRecoil = SCNAction.move(by: SCNVector3(-barrelSize / 2, 0, 0), duration: 0.1)
+            sequenceOfActions.append(barrelRecoil)
+            let projectileLaunch = SCNAction.run { [unowned self] node in
+                self.launchProjectile(from: node)
+            }
+            sequenceOfActions.append(projectileLaunch)
+            sequenceOfActions.append(barrelRecoil.reversed())
+            
+            if isEven {
+                sequenceOfActions.append(coolDownAction)
+            }
+            
+            let sequenceAction = SCNAction.sequence(sequenceOfActions)
+            let repeatAction = SCNAction.repeatForever(sequenceAction)
+            pair.element.runAction(repeatAction, forKey: .fireAnimationKey)
+        }
+    }
+    
+    func ceaseFire() {
+        barrels.forEach { $0.removeAction(forKey: .fireAnimationKey) }
+    }
+    
+    private func launchProjectile(from barrel: SCNNode) {
+        let bullet = SCNSphere(radius: 0.005)
+        bullet.firstMaterial?.diffuse.contents = UIColor.systemRed
+        let bulletNode = SCNNode(geometry: bullet)
+        bulletNode.position = barrel.convertPosition(bulletNode.position, to: self)
+        addChildNode(bulletNode)
+        
+        let launchAction = SCNAction.move(by: SCNVector3(0.3, 0, 0), duration: 1)
+        let reapeatAction = SCNAction.repeatForever(launchAction)
+        bulletNode.runAction(reapeatAction)
     }
     
     private func setup() {
@@ -52,7 +99,7 @@ class TurrelNode: SCNNode {
         
         // Barrels
         var xBarrelOffset = Float(towerFeometry.width / 2)
-        let barrelGeometry = SCNCylinder(radius: 0.01, height: 0.1)
+        let barrelGeometry = SCNCylinder(radius: 0.01, height: barrelSize)
         xBarrelOffset += Float(barrelGeometry.height / 2)
         barrelGeometry.firstMaterial?.diffuse.contents = UIColor.systemGray3
         
@@ -71,19 +118,12 @@ class TurrelNode: SCNNode {
         var rightBarrelSpawnLocation = SCNVector3(0, Float(barrelGeometry.height / 2), 0)
         rightBarrelSpawnLocation = rightBarrelNode.convertPosition(rightBarrelSpawnLocation, to: self)
         
-        bulletSpawnLocations = [leftBarrelSpawnLocation, rightBarrelSpawnLocation]
-        
-        let bullet = SCNSphere(radius: 0.005)
-        bullet.firstMaterial?.diffuse.contents = UIColor.systemRed
-        let bulletNode = SCNNode(geometry: bullet)
-        bulletNode.position = leftBarrelSpawnLocation
-        addChildNode(bulletNode)
-        
-        let bulletCopy = bulletNode.clone()
-        bulletNode.position = rightBarrelSpawnLocation
-        addChildNode(bulletCopy)
-        
+        barrels = [leftBarrelNode, rightBarrelNode]
         pivot = SCNMatrix4MakeTranslation(0, yOffset / 2, 0)
     }
     
+}
+
+private extension String {
+    static let fireAnimationKey = "Fire"
 }
