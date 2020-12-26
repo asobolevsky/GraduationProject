@@ -23,6 +23,7 @@
 		5FD27D702592BF3500CE283C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FD27D6E2592BF3500CE283C /* Main.storyboard */; };
 		5FD27D722592BF3900CE283C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD27D712592BF3900CE283C /* Assets.xcassets */; };
 		5FD27D752592BF3900CE283C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FD27D732592BF3900CE283C /* LaunchScreen.storyboard */; };
+		5FE7FF1B2596C1F300350E1B /* TurrelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		5FD27D712592BF3900CE283C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FD27D742592BF3900CE283C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FD27D762592BF3900CE283C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurrelNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		5F43585C2592CC82007C5036 /* SceneKit */ = {
 			isa = PBXGroup;
 			children = (
+				5FE7FF192596C1E600350E1B /* CustomNodes */,
 				5F81E54525940DAA000AB730 /* Scenarios */,
 				5F43585D2592CC9A007C5036 /* SceneKitRootViewController.swift */,
 				5F4358612592CD79007C5036 /* SceneKitScenarioViewController.swift */,
@@ -127,6 +130,14 @@
 				5F81E569259660C9000AB730 /* art.scnassets */,
 			);
 			path = GraduateProject;
+			sourceTree = "<group>";
+		};
+		5FE7FF192596C1E600350E1B /* CustomNodes */ = {
+			isa = PBXGroup;
+			children = (
+				5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */,
+			);
+			path = CustomNodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 				5F81E56625965D2C000AB730 /* TowerDefenceScenario.swift in Sources */,
 				5FD27D692592BF3500CE283C /* AppDelegate.swift in Sources */,
 				5F81E571259668AD000AB730 /* String+Extensions.swift in Sources */,
+				5FE7FF1B2596C1F300350E1B /* TurrelNode.swift in Sources */,
 				5F81E55E25956207000AB730 /* SCNVector3+Extensions.swift in Sources */,
 				5F81E54725940DB7000AB730 /* MoleculesScenario.swift in Sources */,
 				5FD27D6B2592BF3500CE283C /* SceneDelegate.swift in Sources */,

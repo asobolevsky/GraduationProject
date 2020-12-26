@@ -58,7 +58,7 @@ class TowerDefenceScenario: NSObject, SceneKitScenario {
         }
         
         let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [ .horizontal ]
+//        config.planeDetection = [ .horizontal ]
         if let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "TowerDefence", bundle: nil) {
             config.detectionImages = referenceImages
             config.maximumNumberOfTrackedImages = 8
@@ -124,7 +124,7 @@ class TowerDefenceScenario: NSObject, SceneKitScenario {
         material.diffuse.wrapS = .repeat
         material.diffuse.wrapT = .repeat
         
-        let scaleX = (Float(geometry.width)  / 0.1).rounded()
+        let scaleX = (Float(geometry.width) / 0.1).rounded()
         let scaleY = (Float(geometry.height) / 0.1).rounded()
         //we then apply the scaling
         material.diffuse.contentsTransform = SCNMatrix4MakeScale(scaleX, scaleY, 0)
