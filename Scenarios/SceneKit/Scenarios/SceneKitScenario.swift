@@ -7,7 +7,7 @@
 
 import ARKit
 
-protocol SceneKitScenario: ARSCNViewDelegate {
+protocol SceneKitScenario: ARSCNViewDelegate, SCNPhysicsContactDelegate {
     init(with session: ARSession, rootNode: SCNNode)
     
     func startSession()

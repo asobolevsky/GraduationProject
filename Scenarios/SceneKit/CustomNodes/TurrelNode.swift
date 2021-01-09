@@ -56,15 +56,23 @@ class TurrelNode: SCNNode {
     }
     
     private func launchProjectile(from barrel: SCNNode) {
+        let nodeScale: Float = 0.1
         let bullet = SCNSphere(radius: 0.005)
         bullet.firstMaterial?.diffuse.contents = UIColor.systemRed
         let bulletNode = SCNNode(geometry: bullet)
         bulletNode.position = barrel.convertPosition(bulletNode.position, to: self)
         addChildNode(bulletNode)
         
+        let bulletPhysicslShape = SCNPhysicsShape(geometry: bullet, options: nil)
+        let bulletPhysicsBody = SCNPhysicsBody(type: .kinematic, shape: bulletPhysicslShape)
+        bulletPhysicsBody.isAffectedByGravity = false
+        bulletNode.physicsBody = bulletPhysicsBody
+        
         let launchAction = SCNAction.move(by: SCNVector3(0.3, 0, 0), duration: 1)
         let reapeatAction = SCNAction.repeatForever(launchAction)
         bulletNode.runAction(reapeatAction)
+        
+        scale = SCNVector3(SIMD3<Float>(repeating: nodeScale))
     }
     
     private func setup() {

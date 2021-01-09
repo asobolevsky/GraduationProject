@@ -23,6 +23,27 @@ class MobNode: SCNNode {
         let animation = loadAnimation()
         mobNode.addAnimation(animation, forKey: .animationKey)
         
+        let scale: Float = 0.003
+        mobNode.scale = SCNVector3(SIMD3<Float>(repeating: scale))
+        
+        let physicsGeometry = SCNBox(boundingBox: mobNode.boundingBox)
+        let mobBoxShape = SCNPhysicsShape(geometry: physicsGeometry, options: [
+            SCNPhysicsShape.Option.scale: mobNode.scale,
+            SCNPhysicsShape.Option.type: SCNPhysicsShape.ShapeType.boundingBox
+        ])
+        
+        let width = mobNode.boundingBox.max.x - mobNode.boundingBox.min.x
+        let translate = SCNMatrix4MakeTranslation(-(width * scale) / 2, 0, 0)
+        let rotate = SCNMatrix4MakeRotation(-.pi / 2, 0, 0, 1)
+        let resultMatrix = SCNMatrix4Mult(translate, rotate)
+        let translateMatrix = NSValue(scnMatrix4: resultMatrix)
+        let mobPhysicsShape = SCNPhysicsShape(shapes: [mobBoxShape], transforms: [translateMatrix])
+        
+        let mobPhysicsBody = SCNPhysicsBody(type: .kinematic, shape: mobPhysicsShape)
+        mobPhysicsBody.categoryBitMask = CollisionCategory.mob.rawValue
+        mobPhysicsBody.contactTestBitMask = CollisionCategory.turrelProjectile.rawValue
+        mobNode.physicsBody = mobPhysicsBody
+        
         addChildNode(mobNode)
     }
     

@@ -25,6 +25,9 @@
 		5FD27D752592BF3900CE283C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FD27D732592BF3900CE283C /* LaunchScreen.storyboard */; };
 		5FE7FF1B2596C1F300350E1B /* TurrelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */; };
 		5FE7FF212597911200350E1B /* MobNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7FF202597911200350E1B /* MobNode.swift */; };
+		5FE7FF242597A6B800350E1B /* CollisionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7FF232597A6B800350E1B /* CollisionCategory.swift */; };
+		5FE7FF282597A75400350E1B /* TurrelProjectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7FF272597A75400350E1B /* TurrelProjectile.swift */; };
+		5FE7FF2B2597A9D200350E1B /* SCNBox+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7FF2A2597A9D200350E1B /* SCNBox+Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		5FD27D762592BF3900CE283C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurrelNode.swift; sourceTree = "<group>"; };
 		5FE7FF202597911200350E1B /* MobNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobNode.swift; sourceTree = "<group>"; };
+		5FE7FF232597A6B800350E1B /* CollisionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionCategory.swift; sourceTree = "<group>"; };
+		5FE7FF272597A75400350E1B /* TurrelProjectile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurrelProjectile.swift; sourceTree = "<group>"; };
+		5FE7FF2A2597A9D200350E1B /* SCNBox+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNBox+Extentions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 				5F81E56025956242000AB730 /* SCNNode+Extensions.swift */,
 				5F81E56C259661E5000AB730 /* Sequence+Extension.swift */,
 				5F81E570259668AC000AB730 /* String+Extensions.swift */,
+				5FE7FF2A2597A9D200350E1B /* SCNBox+Extentions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -137,8 +144,10 @@
 		5FE7FF192596C1E600350E1B /* CustomNodes */ = {
 			isa = PBXGroup;
 			children = (
+				5FE7FF232597A6B800350E1B /* CollisionCategory.swift */,
 				5FE7FF1A2596C1F300350E1B /* TurrelNode.swift */,
 				5FE7FF202597911200350E1B /* MobNode.swift */,
+				5FE7FF272597A75400350E1B /* TurrelProjectile.swift */,
 			);
 			path = CustomNodes;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FE7FF282597A75400350E1B /* TurrelProjectile.swift in Sources */,
 				5F43585E2592CC9A007C5036 /* SceneKitRootViewController.swift in Sources */,
 				5FD27D6D2592BF3500CE283C /* ViewController.swift in Sources */,
 				5F81E56625965D2C000AB730 /* TowerDefenceScenario.swift in Sources */,
@@ -224,10 +234,12 @@
 				5F81E54725940DB7000AB730 /* MoleculesScenario.swift in Sources */,
 				5FD27D6B2592BF3500CE283C /* SceneDelegate.swift in Sources */,
 				5F4358622592CD79007C5036 /* SceneKitScenarioViewController.swift in Sources */,
+				5FE7FF2B2597A9D200350E1B /* SCNBox+Extentions.swift in Sources */,
 				5FE7FF212597911200350E1B /* MobNode.swift in Sources */,
 				5F81E56D259661E5000AB730 /* Sequence+Extension.swift in Sources */,
 				5F81E56125956242000AB730 /* SCNNode+Extensions.swift in Sources */,
 				5F81E54C25940FBD000AB730 /* SceneKitScenario.swift in Sources */,
+				5FE7FF242597A6B800350E1B /* CollisionCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -84,8 +84,6 @@ class TowerDefenceScenario: NSObject, SceneKitScenario {
     
     private func spawnMob(at position: SCNVector3 = SCNVector3()) -> SCNNode {
         let mobNode = MobNode()
-        let scale: Float = 0.003
-        mobNode.scale = SCNVector3(SIMD3<Float>(repeating: scale))
         mobNode.position = position
         return mobNode
     }
@@ -110,11 +108,8 @@ class TowerDefenceScenario: NSObject, SceneKitScenario {
         parentNode.addChildNode(towerNode)
     }
     
-    
     private func createTurrel(withing parentNode: SCNNode) {
         let turrelNode = TurrelNode()
-        let scale: Float = 0.1
-        turrelNode.scale = SCNVector3(SIMD3<Float>(repeating: scale))
         turrelNode.startFire(at: SCNVector3())
         parentNode.addChildNode(turrelNode)
     }
@@ -184,6 +179,39 @@ extension TowerDefenceScenario: ARSCNViewDelegate {
 //            mobMoveDirection = node.presentation.position;
             
         default: break
+        }
+    }
+}
+
+// MARK: - SCNPhysicsContactDelegate
+
+extension TowerDefenceScenario: SCNPhysicsContactDelegate {
+    private func isContact(_ contact: SCNPhysicsContact,
+                           between categoryA: CollisionCategory,
+                           and categoryB: CollisionCategory) -> Bool {
+        return (contact.nodeA.physicsBody?.categoryBitMask == categoryA.rawValue &&
+                    contact.nodeB.physicsBody?.categoryBitMask == categoryB.rawValue) ||
+            (contact.nodeB.physicsBody?.categoryBitMask == categoryA.rawValue &&
+                contact.nodeA.physicsBody?.categoryBitMask == categoryB.rawValue)
+    }
+    
+    private func node(with category: CollisionCategory, in contact: SCNPhysicsContact) -> SCNNode? {
+        if contact.nodeA.physicsBody?.categoryBitMask == category.rawValue {
+            return contact.nodeA
+        }
+        
+        if contact.nodeB.physicsBody?.categoryBitMask == category.rawValue {
+            return contact.nodeB
+        }
+        
+        return nil
+    }
+ 
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        if isContact(contact, between: .turrelProjectile, and: .mob) {
+            
+            contact.nodeA.removeFromParentNode()
+            contact.nodeB.removeFromParentNode()
         }
     }
 }
